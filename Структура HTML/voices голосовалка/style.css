@@ -1,0 +1,10 @@
+body .partners .partners-slider .slick-list{
+    /*display: flex;
+    justify-content: center;*/
+    /*width: fit-content;*/
+}
+body .partners .partners-slider .slick-track {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+}

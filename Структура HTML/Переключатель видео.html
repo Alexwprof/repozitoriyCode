@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .all-wrap-container{
+            max-width: 560px;
+            margin: 0 auto;
+        }
+        .url-frame{
+            padding-top:10px;
+        }
+        .url {
+        padding: 17px;
+        border-bottom: 1px solid silver;
+        color: #174c79;
+        cursor:pointer;
+        }
+        .active{
+            background-color: #c6d6e499;
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="all-wrap-container">
+
+        <iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/JG5HJrK0ngc" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+        gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+
+        <div class="url-frame" style="padding-top:10px">
+            <div class="url no-active active"  data-video="https://www.youtube.com/embed/idmw64vrRLk">Deep Sleep Music 24/7, Insomnia</div>
+            <div class="url no-active"  data-video="https://www.youtube.com/embed/7sbbb7Dt3D8">Dua Lipa, Coldplay, Martin Garrix & Kygo, The Chainsmokers Style - Feeling Me</div>
+            <div class="url no-active"  data-video="https://www.youtube.com/embed/g9w7cDeCguo">Cafe De Anatolia - Most Beautiful Songs </div>
+            <div class="url no-active"  data-video="https://www.youtube.com/embed/PNhQakLdI9o">Best Music Of Hacking Your Mind_v.02  </div>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script>
+        let param;
+        $('.url').on('click', function() {
+            $(".url").each(function() {
+                if ($(this).hasClass('active')) {
+                    $(this).removeClass('active')
+                }
+            });
+            param = $(this).data('video');
+            $(this).addClass('active');
+            $('.iframe').attr('src', param);
+        });
+    </script>
+</body>
+</html>
+

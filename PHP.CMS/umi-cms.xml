@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+	<xsl:template match="result[@module = 'news'][@method = 'item']">
+		
+		<div class="full_wrapper content_block">
+		    <div class="container">
+			
+			<div class="row">
+			    <div class="col-xs-24 new-item this-item"> 
+				<h1><xsl:value-of select="@header"/></h1>
+				<p class="ico date publish_time"><xsl:value-of select="document(concat('udata://news/dateru/',.//property[@name='publish_time']/value/@unix-timestamp))/udata"/></p>
+				<hr/>
+        <!-- Добавлял якоря. Ниже вывожу доп. поле из новостей  -->
+				<xsl:value-of select="//property[@name='yakorya_dlya_statej']/value" disable-output-escaping="yes"/>
+				<div class="anons content content_p">
+				    <div class="img">
+					<xsl:apply-templates select=".//property[@name='anons_pic']" mode="img">
+						<xsl:with-param name="alt" select="@header"/>
+					</xsl:apply-templates>
+				    </div>
+				    <xsl:apply-templates select=".//property[@name='content']"/>				    
+				</div>
+			    </div>                
+			</div>
+			
+			
+		    </div>
+		</div>
+		
+		<!--<xsl:apply-templates select=".//property[@name = 'content']" />
+		<div>
+			<xsl:apply-templates select="document(concat('udata://comments/insert/',$pageId))/udata" />
+		</div>-->
+	</xsl:template>
+
+</xsl:stylesheet>
+
+Добавлял поле следующим образом 
+https://doska-brus-kursk.ru/admin/data/types/ - в типах данных Новости добавил новое поле с типом HTML, новое поле появилось в редактировании конкретной статьи
+Вывел свойство строкой <xsl:value-of select="//property[@name='yakorya_dlya_statej']/value" disable-output-escaping="yes"/>
+Параметр disable-output-escaping="yes" позволяет вывести html как текст, а не тегами 

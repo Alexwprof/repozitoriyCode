@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>Регулярки</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+<script>
+setTimeout(function(){
+    location.reload();
+}, 5000);
+</script>
+</head>
+<body>
+<div id="test">
+
+</div>	
+	<div id="fr">
+<form action="регулярки.htm" id="form">
+	<input type="email" name="mail" placeholder="почта" class="auth">
+	<p id="error"></p>
+	<input type="submit" value="send" name="send">
+		
+		
+		
+		
+		</form>
+</div>	
+	
+
+<script>	
+function show()   {  
+var str = document.getElementById('test');
+var arrt  = 'alexwprof@gmail.com ALEXWPROF@GMAIL.RU'  ;
+var arr  = '<a href="index.php?cf=mail-deletemail&amp;sid=1445915825"></a>'  ;
+//g - глобальный поиск по всем совпадениям
+//i - игнорирует регистр
+//.  - точка означает любой символ
+//'+'  - означает 1 или более раз 
+// '*' - означает ноль и более раз
+// '?' - ноль или 1 и более раз
+// '()' - и
+// '\'- обратный слеш экранирует спецсимволы
+//Являются спецсимволами: $ ^ . * + ? \ {} [] () |
+//Не являются спецсимволами: @ : , ' '' ; - _ = < > % # ~ `& ! /
+//?? - Ограничение жадности - одно повторение
+// {2,}	 - повторение 2 и более раз
+//\s	Обозначает пробел или пробельный символ (имеется ввиду перевод строки, табуляция и т.п.).
+//\S	Не пробел, то есть всё, кроме \s.
+//\w	Цифра или буква (кириллица не входит в буквы).
+//\W	Не цифра и не буква.
+//\d	Цифра от 0 до 9.
+//\D	Не цифра от 0 до 9.
+//[] - или
+// ^ - отрицание  - это не буква с
+
+var str = arsdf.replace(/[a-z A-Z].+@.+[a-z A-Z]\..{2,3}/g, '!');
+var str = rgd.replace(/<a.href."index.php.?.cf.+.&.+[mid]..\d.{2,10}.+?.(a??)/g ,'!');
+var str = arr.replace(/<a.href."index.php.?.cf.+.&.+[mid]..\d.{2,10}.+?.(a??)/g ,'!');
+
+document.write(str);
+
+}  
+	
+	show();
+ 
+</script>
+	
+	
+<script>
+var erl = document.getElementById('error');
+document.getElementById('form').addEventListener('submit', function(e) {
+var inputs = document.querySelectorAll('.auth'), 
+	result, i;	
+for(i = 0; i < inputs.length; i++) {
+if( inputs[i].value.match(/.a.href."index.php.?.cf.+.&.+[mid]..\d.{2,10}/g ,'!') ) {
+result = true;
+break;
+ }
+}
+if(!result) {
+e.preventDefault();
+erl.innerHTML = 'заполнео не верно. Смотрите образец alexander@gmail.com';
+
+    }
+});
+
+</script>
+</body>
+
+
+
+
+
+</html>

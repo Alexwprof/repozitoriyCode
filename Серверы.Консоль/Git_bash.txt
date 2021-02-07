@@ -1,0 +1,37 @@
+$ git config --global user.name "Alexander"
+
+$git config --global user.email "email@gh.ru"
+
+$ git config --list
+$ git init - инициализировать папку
+$ git status - проверить статус файлов 
+
+$ git add . / добавляем всё 
+$ git add index.html можно добавить конкретные файлы
+$ git commit -m "Comment" -коммитим 
+
+Ссылку на репозиторий получаем в личном кабинете на гите 
+git remote add origin https://github.com/Alexwprof/yii2_test.git - добавляем файлы для заливки на уд репозиторий
+git push -u origin master - пушим на нитхаб
+
+git checkout -b new_pass ///создание новой ветки
+
+git checkout-b_hh
+
+$ git branch  - показать все ветки и ветку в которой находишься
+git checkout master - переключиться на другую ветку
+git branch -v - увидеть последние коммиты к веткам
+
+git_clone адрес_сайта - клонировать репзиторий
+
+$ git_diff - показать изменения
+
+Логин: Alexwprof
+Пароль: d17051220
+E-mail: onmob92@gmail.com
+Пароль для операций: whBWLshdnn (обязательно запишите этот пароль)
+Этот пароль нужен для подтверждения некоторых операций связанных с расходом баланса аккаунта.
+
+cd E:/Git_content/Different_code - перейти в другую директорию
+
+

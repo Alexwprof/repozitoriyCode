@@ -1,0 +1,33 @@
+<? if ($USER->isAdmin()) : ?>
+                                                      			<div class="row">
+                                                      				<div class="container seo-links">
+                                                      					<div class="seoLinksContainer">
+                                                      					<div class="seoLinksContainer__hieght">
+                                                      						<?
+                                                      							if (CModule::IncludeModule('iblock'))
+                                                      							{
+                                                      								$arF = array(
+                                                      									'IBLOCK_ID' => 35,
+                                                      									'CODE' => $APPLICATION->GetCurPage()
+                                                      								);
+                                                      								$res = CIBlockElement::GetList(array(), $arF, false, false, array());
+                                                      								if ($r = $res->GetNextElement())
+                                                      								{
+                                                      									$p = $r->getProperties();
+                                                      									$f = $r->getFields();
+                                                      									// prr($f);
+                                                      									foreach ($p['LINKS']['~VALUE'] as $key => $value)
+                                                      									{
+                                                      										?>
+                                                      											<span class="seo-link"><?=$value['TEXT']?></span>
+                                                      										<?
+                                                      									}
+                                                      								}
+                                                      							}
+                                                      						?>
+                                                      					</div>
+                                                      					</div>
+                                                      					<input type="button" name=""  value="�������� ���" class="seoLinksContainer__button">
+                                                      				</div>
+                                                      			</div>
+                                                      		<? endif ?>

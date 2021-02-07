@@ -1,0 +1,19 @@
+
+Конcольные команды SSH:
+
+Копировать из папки в папку
+scp -r /home/bitrix/www/upload/ root@318648-udarplast.tmweb.ru:/home/bitrix/ext_www/posudaria.ru/
+----------
+Удалить содержимое папки в которой находишься
+rm -rf *
+----------
+Перенести из папки в другую папку
+mv /home/bitrix/ext_www/folder3/ /home/bitrix/ext_www/posudaria.ru/folder2/
+----------
+Меняем владельца у файлов в текущей папке
+chown bitrix /home/bitrix/ext_www/posudaria.ru/folder2/
+----------
+Меняем владельца всех файлов и каталогов папки рекурсивно
+chown bitrix /home/bitrix/ext_www/posudaria.ru/test2/*
+
+

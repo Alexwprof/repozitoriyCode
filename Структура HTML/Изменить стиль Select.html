@@ -1,0 +1,47 @@
+<style>
+
+.new-select-style-wpandyou select {
+    border-radius: 0;
+    background: transparent;
+    height: 34px;
+    padding: 5px;
+    border: none;
+    font-size: 16px;
+    line-height: 1;
+    -webkit-appearance: none;
+    width: 268px;
+   }
+
+.new-select-style-wpandyou {
+    border: 1px solid #4d4444;
+    overflow: hidden;
+    height: 46px;
+    background: url(/img/fr.8yPGb.png) no-repeat right #fff;
+    background-position-x: right;
+    background-size: auto;
+    width: 284px;
+    margin-bottom: 15px;
+    margin-left: -5px;
+    background-size: 13%;
+    background-position-x: 98%;
+}
+
+
+.form-order-wrapper form.order-form .btn-group select{
+    border:none;
+    margin-left:0px!important;
+    color: #605F5FCC;
+}
+
+</style>
+
+<!-- Главное, обернуть селект в див  --!>
+<div class="new-select-style-wpandyou">
+
+				<select type="text" name="trenning" value="<?=$val?>">
+					<option value="scmolodezhka@gmail.com" <?if ($val == "scmolodezhka@gmail.com") :?>selected=""<?endif?>>Хоккей</option>
+					<option value="info.rjjschool@gmail.com" <?if ($val == "info.rjjschool@gmail.com") :?>selected=""<?endif?>>Школа бокса RJJ</option>
+					<option value="scmolodezhka@gmail.com " <?if ($val == "scmolodezhka@gmail.com ") :?>selected=""<?endif?>>Ресторан "Шайба"</option>
+				</select>
+	
+</div>

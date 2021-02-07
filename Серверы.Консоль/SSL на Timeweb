@@ -1,0 +1,11 @@
+Добавить сертификат SSL бесплатный на TimeWeb:
+root
+пароль****
+Заходим в менеджер сервера, выбираем создать сертификат, 8 цифра в списке
+
+Enter site name (default):  posudaria.ru
+Enter DNS name(s): posudaria.ru, www.posudaria.ru
+Email:  udarplasttmwb@yandex.ru
+
+Посмотреть обязательно именно название сайта. там вверху будет отображаться список 
+

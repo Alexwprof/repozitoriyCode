@@ -1,0 +1,31 @@
+Открываем текущий файл конфиграции опенсервера (файл сервера)
+ищем в нём нижеперечисленный текст и заменяем 
+
+#-----------------------------------------------#
+# Настройка прав доступа к серверу
+#-----------------------------------------------#
+
+<Directory />
+
+    AllowOverride       None
+    Options             -MultiViews -Indexes -FollowSymLinks -IncludesNoExec -Includes -ExecCGI
+    Require             all denied
+
+</Directory>
+
+<Directory "%ssitedir%/*">
+
+    AllowOverride       All
+    Options             -MultiViews +Indexes +FollowSymLinks +IncludesNoExec +Includes +ExecCGI
+    #Options            -FollowSymLinks +SymLinksIfOwnerMatch  # Защита лучше, но нагрузка выше
+    Require             all granted
+
+</Directory>
+
+
+<Directory "%ssitedir%/new1.loc">
+php_admin_value mbstring.func_overload 2
+
+</Directory>
+
+
