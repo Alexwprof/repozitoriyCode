@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    ul#menu, ul#menu ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    width: 600px;
+    margin: 0 auto;
+    }
+    ul#menu a,ul#menu span { display: block; text-decoration: none; }
+    
+    ul#menu li {
+     margin-top: 1px; 
+     }
+    
+    ul#menu li a,ul#menu li span {
+    background-color: hsl(293deg 24% 45%);
+        color: #FFFFFF;
+        padding: 7px;
+    }
+    
+    ul#menu li a:hover,ul#menu li span:hover { 
+     background-color: hsl(293deg 24% 45%);
+     }
+    
+    ul#menu li ul li a {
+        background-color: hsl(0deg 0% 94%);
+        color: #000000;
+    }
+    
+    ul#menu li ul li a:hover {
+    background-color: hsl(0deg 0% 94%);
+    }
+    
+        </style>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    $("#menu .active-one").show();
+    $("#menu ul").hide();
+    $("#menu li span").click(function() {
+        $("#menu ul:visible").slideUp("normal");
+        if (($(this).next().is("ul")) && (!$(this).next().is(":visible"))) {
+            $(this).next().slideDown("normal");
+        }
+    });
+    });
+    </script>
+</head>
+<body>
+    <ul id="menu">
+        <li><span>Пешком</span>
+           <ul class="active-one">
+            <li><a href="#">
+                 Как Вы могли заметить, при клике по пунктам меню "Скрипты",
+                 "Онлайн-сервисы" или "Хитрости", меню разворачивается и показывается подменю. При
+                 клике по пунктам меню "Поддержка" или "Форум", сразу осуществляется переход к нужной 
+                 страничке. Как уже можно было догадаться из названия, для реализации подобного меню 
+                 у себя на сайте Вам понадобится библиотека jQuery. Если данная библиотека на Вашем 
+                 сайте еще не была подключена ранее, то следует это сделать следующим образом:
+                </a></li>
+           </ul>
+        </li>
+
+        <li><span>Вход в здание</span>
+            <ul>
+             <li><a href="#">
+                  Как Вы могли заметить, при клике по пунктам меню "Скрипты",
+                  "Онлайн-сервисы" или "Хитрости", меню разворачивается и показывается подменю. При
+                  клике по пунктам меню "Поддержка" или "Форум", сразу осуществляется переход к нужной 
+                  страничке. Как уже можно было догадаться из названия, для реализации подобного меню 
+                  у себя на сайте Вам понадобится библиотека jQuery. Если данная библиотека на Вашем 
+                  сайте еще не была подключена ранее, то следует это сделать следующим образом:
+                 </a></li>
+            </ul>
+         </li>
+
+         <li><span>Скрипты</span>
+            <ul>
+             <li><a href="#">
+                  Как Вы могли заметить, при клике по пунктам меню "Скрипты",
+                  "Онлайн-сервисы" или "Хитрости", меню разворачивается и показывается подменю. При
+                  клике по пунктам меню "Поддержка" или "Форум", сразу осуществляется переход к нужной 
+                  страничке. Как уже можно было догадаться из названия, для реализации подобного меню 
+                  у себя на сайте Вам понадобится библиотека jQuery. Если данная библиотека на Вашем 
+                  сайте еще не была подключена ранее, то следует это сделать следующим образом:
+                 </a></li>
+            </ul>
+         </li>
+
+ 
+    
+   
+        
+       </ul>
+</body>
+</html>
