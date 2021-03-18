@@ -15,3 +15,18 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www.solncevo.dr-vita.ru$ [NC]
 RewriteRule ^(.*)$ http://solncevo.dr-vita.ru/$1 [R=301,L]
+
+# Удаляет слэш на конце URL
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} (.*)
+RewriteCond %{REQUEST_URI} /$ [NC]
+RewriteRule ^(.*)(/)$ $1 [L,R=301]
+
+# Добавляет слэш на конце URL
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*[^/])$ $1/ [L,R=301]
+
