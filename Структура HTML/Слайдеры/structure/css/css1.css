@@ -1,0 +1,115 @@
+.slider-1 {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slick-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.item-img{
+    display: block;
+    width: 214px;
+    height: 182px;
+}
+
+.slider-1_item {
+    max-width: 300px;
+    width: 100%;
+    margin: 70px auto;
+}
+
+.my-slider-arrow.slick-arrow {
+    position: absolute;
+    top: 40%;
+    z-index: 1000;
+}
+
+.my-slider-arrow.ar-right.slick-arrow {
+    right: 0;
+}
+
+.my-slider-arrow.ar-left.slick-arrow {
+    left: 0px;
+}
+
+.fleft:before{
+    display:block;
+    content: "";
+    width:70px;
+    height:70px;
+    background-image: url('C:/Users/Александр/Desktop/Слайдеры/structure/img/q2.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+.fright:before{
+    display:block;
+    content: "";
+    width:70px;
+    height:70px;
+    background-image: url('C:/Users/Александр/Desktop/Слайдеры/structure/img/q1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+.wrap-slider-1.slick-initialized.slick-slider{
+    padding-left: 6px !important;
+}
+@media(max-width:1024px){
+    .wrap-slider-1.slick-initialized.slick-slider {
+       padding-right: 0px !important;
+       padding-left: 7px !important;
+       max-width: 831px;
+       width: 100%;
+       margin: 0 auto;
+    }
+    
+    .item-img {
+        display: block;
+        width: 96%;
+        height: 182px;
+    }
+
+}
+
+@media(max-width:768px){
+    .wrap-slider-1.slick-initialized.slick-slider {
+        max-width: 831px;
+        width: 76%;
+        margin: 0 auto;
+    }
+
+}
+
+
+@media (max-width: 600px){
+    .item-img {
+        display: block;
+        width: 96%;
+        height: 141px;
+    }
+}
+
+
+#progress {
+    width: 100%;
+    height: 10px;
+    background-color: white;
+    border: 2px solid silver;
+}
+
+progress:before{
+    content:"";
+    display:block;
+    position: absolute;
+    width: 0%;
+    height: 10px;
+    background-color: aquamarine;
+   
+}

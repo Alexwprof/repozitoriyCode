@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <script>
+
+    alert('Я ЗДОРОВ , ВСЁ БУДЕТ ХОРОШО !!!!!!!')
+  </script>
+
+    <link href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="structure/css/css1.css">
+    <link rel="stylesheet" type="text/css" href="structure/css/main.css">
+    <link rel="stylesheet" type="text/css" href="structure/css/css2.css">
+    <link rel="stylesheet" type="text/css" href="structure/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="structure/css/slick-theme.css">
+    <title>Слайдер со стрелочками побокам</title>
+</head>
+<body>
+ <div class="container-slder">
+    <div class="slider-1">
+        <div class="title-container">Слайдер со стрелочками побокам 1</div>
+        <div class="wrap-slider-1">
+            <div class="slider-1_item"><div class="item-img"><img src="structure/img/youfon.net_1489336312.jpg"></div></div>
+            <div class="slider-1_item"><div class="item-img"><img src="structure/img/youfon.net_1503828550.jpg"></div></div>
+            <div class="slider-1_item"><div class="item-img"><img src="structure/img/youfon.net_1504262020.jpg"></div></div>
+            <div class="slider-1_item"><div class="item-img"><img src="structure/img/youfon.net_1504882947.jpg"></div></div>
+            <div class="slider-1_item"><div class="item-img"><img src="structure/img/youfon.net_1510844122.jpg"></div></div>      
+            <div class="slider-1_item"><div class="item-img"><img src="structure/img/youfon.net_1615999312.jpg"></div></div>
+        </div>
+        <div id="progress">
+            <div class="progressout">
+
+            </div>
+        </div>
+    </div>
+ </div>
+ </div>
+
+
+<style>
+
+.sliders {
+  text-align: center;
+}
+
+.sliders>div {
+  background-color: #ddd;
+}
+
+.sliders>div h3 {
+  background-color: #ccc;
+  border: 1px solid #000;
+  margin: 10px;
+  font-size: 42px;
+  line-height: 60px;
+}
+</style>
+
+<div class='sliders'>
+  <div>
+    <h3>1</h3>
+  </div>
+  <div>
+    <h3>2</h3>
+  </div>
+  <div>
+    <h3>3</h3>
+  </div>
+  <div>
+    <h3>4</h3>
+  </div>
+  <div>
+    <h3>5</h3>
+  </div>
+  <div>
+    <h3>6</h3>
+  </div>
+</div>
+
+
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script src="structure/js/slick.min.js"></script>
+ <script src="structure/js/js1.js"></script>
+ <script src="structure/js/js2.js"></script>
+
+
+ <script>
+var mySlider = $('.sliders');
+
+mySlider.slick({
+  dots: false,
+  infinite: true,
+  slidesToShow: 3,
+});
+ </script>
+
+
+
+<script>
+    function sayHi() {
+        var boxElement = document.querySelector('.progressout');
+        var animation = boxElement.animate([
+        {width: '100%'}
+        ], 10000);
+        animation.addEventListener('finish', function() {
+        boxElement.style.width = '100%';
+        $(".sliders").slick('slickNext');
+        boxElement.style.width = '0%';
+
+        });
+
+    }
+
+ $(document).ready(function() {
+      let timerId = setInterval(() => sayHi(), 10000);
+       
+ });
+
+</script>
+</body>
+</html>
+
+<Html>
+</Html>
