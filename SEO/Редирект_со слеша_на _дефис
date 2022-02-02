@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteCond expr "tolower(%{REQUEST_URI}) =~ /(.+)/"
+RewriteCond %{REQUEST_FILENAME} !-s
+RewriteRule [A-Z] https://%{HTTP_HOST}%1 [R=301,L]
+RewriteRule ^(.+)(\s|_)(.+)$ /$1-$3 [R=301,L]
