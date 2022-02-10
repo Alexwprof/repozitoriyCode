@@ -30,3 +30,18 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !(.*)/$
 RewriteRule ^(.*[^/])$ $1/ [L,R=301]
 
+#Редиректы с нижнего подчёркивания на дефис 
+RewriteEngine On
+RewriteCond expr "tolower(%{REQUEST_URI}) =~ /(.+)/"
+RewriteCond %{REQUEST_FILENAME} !-s
+RewriteRule [A-Z] https://%{HTTP_HOST}%1 [R=301,L]
+RewriteRule ^(.+)(\s|_)(.+)$ /$1-$3 [R=301,L]
+
+RewriteEngine On
+RewriteCond expr "tolower(%{REQUEST_URI}) =~ /(.+)/"
+RewriteCond %{REQUEST_FILENAME} !-s
+RewriteRule [A-Z] https://%{HTTP_HOST}%1 [R=301,L]
+RewriteCond %{REQUEST_FILENAME} !-s
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.*?)_+[_-]*(.+?)\sHTTP [NC]
+RewriteRule ^ /%1-%2 [L,NE,R=302]
+
