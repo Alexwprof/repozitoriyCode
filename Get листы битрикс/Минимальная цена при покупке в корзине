@@ -1,0 +1,79 @@
+Добавляем параметр в корзину
+
+Для начала скопируем шаблон корзины в шаблон своего сайта.
+В моем случае получился путь: /local/templates/ШАБЛОН_САЙТА/components/bitrix/sale.basket.basket/basket
+Открываем, в шаблоне, файл .parameters.php и в массив параметров arTemplateParameters добавляем
+
+
+$arTemplateParameters['MIN_SUMM'] = array(
+    'PARENT' => 'BASE',
+    'NAME' => "Минимальная сумма",
+    'TYPE' => 'STRING',
+    'DEFAULT' => '0'
+);
+
+откроем компонент на редактирование через визуал 
+После этого, в настройках компонента появится поле для указания минимальной суммы.
+
+
+
+
+Теперь, нужно добавить вывод этого параметра в шаблон. Для этого открываем файл
+(в шаблоне корзины) mutator.php. В этом файле собран массив с данными для вывода
+в представление. Обращение к этому файлу происходит при каждом запросе и массив 
+отрабатывает на лету (AJAX). Файл фомирует результат для шаблонизатора mustashe
+
+Находим формирование массива $totalData - примерно на 310-ой строчке. Нужно добавить:
+
+/До формирования массива
+	$minSummOrder = $this->arParams['MIN_SUMM'];
+	if ($result['allSum'] < (int)$minSummOrder) {
+	    $minSummMustache = $minSummOrder;
+	}
+
+//В конец массива ключ MIN_SUMM
+	'MIN_SUMM' => $minSummMustache
+
+//Получится 
+$minSummOrder = $this->arParams['MIN_SUMM'];
+	if ($result['allSum'] < (int)$minSummOrder) {
+	    $minSummMustache = $minSummOrder;
+}
+
+$totalData = array(
+	'DISABLE_CHECKOUT' => (int)$result['ORDERABLE_BASKET_ITEMS_COUNT'] === 0,
+	'PRICE' => $result['allSum'],
+	'PRICE_FORMATED' => $result['allSum_FORMATED'],
+	'PRICE_FORMATED_NEW' => $result['allSum_FORMATED'],
+	'PRICE_WITHOUT_DISCOUNT_FORMATED' => $result['PRICE_WITHOUT_DISCOUNT'],
+	'CURRENCY' => $result['CURRENCY'],
+	'MIN_SUMM' => $minSummMustache,
+);
+
+
+Выводим параметр пользователям
+
+И осталось вывести и обработать этот параметр для пользователей. 
+Открываем файл шаблон_корзины/js-templates/basket-total.php он отвечает
+ за формирование и вывод низа корзины: где поле купона, итоговая сумма 
+и кнопка перехода к оформлению.
+
+Находим строчку, в которой прописана кнопка перехода к оформлению (примерно, строка 75) и заворачиваем в условие.
+
+{{#MIN_SUMM}}
+    <div class="minimal_summ">
+        Минимальная сумма заказа {{{MIN_SUMM}}} руб.
+    </div>
+{{/MIN_SUMM}}
+{{^MIN_SUMM}}
+	<button data-entity="basket-checkout-button">
+		<?=Loc::getMessage('SBB_ORDER')?>
+	</button>
+{{/MIN_SUMM}}
+
+Здесь мы проверили: если из файла mutator.php пришло
+ значение для MIN_SUMM убираем кнопку перехода к оформлению, 
+но выводим оповещение
+
+
+
