@@ -1,0 +1,16 @@
+Продление демо Bitrix
+
+Ставим на локалке новый битрикс
+
+Вытаскиваем из таблицы b_option значение дляa dmin_passwordh (FVkQfGYUBgYtCUVcBhcECgsTAQ==)
+это можно сделать из админки: Настройки → Производительность→ Таблицы. Вот как раз вот это 
+значение VALUE ставим в действующий битрикс
+
+В файле /bitrix/modules/main/admin/define.php Забираем хэш и заменяем его в файле битрикса с истекшей лицензией
+define("TEMPORARY_CACHE", "ARtsfwYHb2MMdAgebRtkG2sA");
+
+Очищаем кэш и /bitrix/managed_cache/ 
+Для просмотра значения записи admin_passwordh:  SELECT * FROM b_option WHERE `NAME`='admin_passwordh'
+
+Для обновления записи:
+UPDATE b_option SET `VALUE` = 'FVkQfGYUBgYtCUVcBhcECgsTAQ==' WHERE `NAME`='admin_passwordh'
