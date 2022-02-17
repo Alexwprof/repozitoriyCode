@@ -24,3 +24,25 @@
 <? endif ?>
 
 <?$this->EndViewTarget();?>
+
+
+<?/*Можно и так перезаписать тег, но добавлять его в эпилог*/?>
+<?
+if(CModule::IncludeModule("iblock")) {
+    $iterator = \CIBlockElement::GetList(
+        [],
+        [
+            'ID' => $arResult["ID"],
+        ],
+        false,
+        false,
+        [
+            'DETAIL_PAGE_URL',
+        ]
+    );
+    if ($item = $iterator->GetNext()) {
+        $item['DETAIL_PAGE_URL'];
+    }
+}
+?>
+<?$APPLICATION->AddHeadString('<link href="https://'.SITE_SERVER_NAME.$item['DETAIL_PAGE_URL'].'" rel="canonical" />',true);?>
