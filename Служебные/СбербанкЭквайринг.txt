@@ -1,0 +1,2 @@
+Ссылка на тестовый кабинет https://3dsec.sberbank.ru/mportal3/auth/login
+Ссылка на боевой кабинет https://securepayments.sberbank.ru/mportal3/admin
