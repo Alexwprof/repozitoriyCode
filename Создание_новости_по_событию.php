@@ -1,4 +1,4 @@
-
+<?
 define("IBLOCK_CREATE", "12");
 define("IBLOCK_CREATE_SKU", "13");
 define("IBLOCK_CREATE_NEWS", "1");
