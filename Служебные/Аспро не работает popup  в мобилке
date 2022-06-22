@@ -1,0 +1,8 @@
+Проблема в том,что на мобилке вместо окна с формой идёт редирект 
+используется плагин jqm
+у центино это лежит \bitrix\templates\centino-training\js\general.js
+у аспро это лежит \bitrix\templates\aspro_next\js\main.js
+*********
+Находим по ключу  строку jQuery.browser.mobile
+
+И комментим функцию , отвечающую за редирект. После исправления должен заработать ajax popup
