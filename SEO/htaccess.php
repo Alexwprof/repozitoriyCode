@@ -45,3 +45,8 @@ RewriteCond %{REQUEST_FILENAME} !-s
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.*?)_+[_-]*(.+?)\sHTTP [NC]
 RewriteRule ^ /%1-%2 [L,NE,R=302]
 
+для пустых запросов, редирект если знак вопроса без параметров в строке 
+RewriteCond %{THE_REQUEST} ^[^\s]+\s+[^?]*?\?
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule .? %{REQUEST_URI}? [R=301,L]
+
